@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt" 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<body>
+
+	<header id="header" class="clearfix" data-ma-theme="blue" th:fragment="header">
+		<ul class="h-inner">
+			<li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
+				<div class="line-wrap">
+					<div class="line top"></div>
+					<div class="line center"></div>
+					<div class="line bottom"></div>
+				</div>
+			</li>
+
+			<li class="hi-logo hidden-xs"><a href="index.html">360</a></li>
+
+			<li class="pull-right">
+				<ul class="hi-menu">
+
+					<!--Quando usuario não logado -->
+		            <li class="dropdown">
+		                <a data-toggle="modal" href="#modalLogin"><i class=" waves-effect him-icon zmdi zmdi-sign-in"></i></a>
+		            </li>
+
+					<!--Quando usuario logado -->
+					<li class="dropdown"><a data-toggle="dropdown" href=""><i class="him-icon zmdi zmdi-account-circle"></i></a>
+						<ul class="dropdown-menu dm-icon pull-right">
+							<li class="m-10">
+								<div>
+									<img src="https://avatars.io/facebook/nicolas0liveira/small" alt=""
+										style="border-radius: 50%; border: 3px solid rgba(0, 0, 0, .14);">
+								</div> nome da silva sauro
+
+							</li>
+							<li class="divider hidden-xs"></li>
+							<li><a href=""><i class="zmdi zmdi-account"></i> View Profile</a></li>
+							<li><a href=""><i class="zmdi zmdi-settings"></i> Settings</a></li>
+							<li><a th:href="@{/logout}"><i class="zmdi zmdi-time-restore"></i> Logout</a></li>
+						</ul></li>
+
+				</ul>
+			</li>
+		</ul>
+
+
+	</header>
+
+</body>
+</html>

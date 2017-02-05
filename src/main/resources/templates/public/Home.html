@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout/LayoutPadrao}">
+
+
+<head>
+
+	<style>
+		.parallax-window {
+		    min-height: 300px;
+		    background: transparent;
+		}
+	</style>
+	
+</head>
+
+<body>
+
+<th:block layout:fragment="conteudo">
+
+
+	<section id="home-section" class="home-section">
+		<div class="block-header">
+             <h2>Home
+                 <small>text bla bla</small>
+             </h2>
+         </div>
+	</section>
+	
+	<div class="parallax-window" data-parallax="scroll" data-image-src="https://unsplash.it/1500/800?random&gravity=center"></div>
+	
+	<section id="ideia-section" class="home-section">
+		<div class="block-header">
+             <h2>Ideia
+                 <small>text bla bla</small>
+             </h2>
+         </div>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/>
+	</section>
+	
+	<div class="parallax-window" data-parallax="scroll" data-image-src="https://unsplash.it/1500/800?random&gravity=center"></div>
+		<section id="localizacao-section" class="home-section">
+		<div class="block-header">
+             <h2>Localizacao
+                 <small>text bla bla</small>
+             </h2>
+         </div>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/>
+	</section>
+	
+	<div class="parallax-window" data-parallax="scroll" data-image-src="https://unsplash.it/1500/800?random&gravity=center"></div>
+	
+	<section id="precos-section" class="home-section">
+		<div class="block-header">
+             <h2>Preço
+                 <small>text bla bla</small>
+             </h2>
+         </div>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/>
+	</section>
+	
+	<div class="parallax-window" data-parallax="scroll" data-image-src="https://unsplash.it/1500/800?random&gravity=center"></div>
+
+	<section id="agenda-section" class="home-section">
+		<div class="block-header">
+	        <h1>
+	            <span>Agenda</span>
+	        </h1>
+	            <small>Agende aqui seu ensaio!</small>
+        </div>
+		<div class="block-header block-header-calendar">
+	        <h2>
+	            <span></span>
+	        </h2>
+	
+	        <ul class="actions actions-calendar">
+	            <li><a class="calendar-prev" href=""><i class="zmdi zmdi-chevron-left"></i></a></li>
+	            <li><a class="calendar-next" href=""><i class="zmdi zmdi-chevron-right"></i></a></li>
+	
+	            <li class="dropdown">
+	                <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+	                <ul class="dropdown-menu dm-icon pull-right">
+	                    <li><a href="" data-calendar-view="month"><i class="zmdi zmdi-view-comfy active"></i> Mês</a></li>
+	                    <li><a href="" data-calendar-view="basicWeek"><i class="zmdi zmdi-view-week"></i> Semana</a></li>
+	                    <li><a href="" data-calendar-view="basicDay"><i class="zmdi zmdi-view-day"></i> Dia</a></li>
+	                </ul>
+	            </li>
+	        </ul>
+	    </div>
+	
+	    <div id="calendar" class="card"> </div>
+	    
+	    
+	    
+	    
+	    <!-- Add event -->
+        <div class="modal fade" id="modal-new-event" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Novo Agendamento</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-event" role="form">
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <input type="text" class="input-sm form-control" id="new-event-title" placeholder="Nome" value="Nicolas (usuario logado)" readonly="readonly">
+                                </div>
+                            </div>
+                            
+                             <div class="form-group">
+                                <div class="fg-line select">
+                                	<select class="form-control" id="new-event-hour">
+                                		<option>08:00 às 11:00</option>
+                                		<option>11:10 às 14:10</option>
+                                		<option>14:20 às 17:00</option>
+                                		<option>17:30 às 21:30</option>
+                                	</select>
+                                </div>
+                            </div>
+
+                            <input type="hidden" id="new-event-start"/>
+                            <input type="hidden" id="new-event-end"/>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-link" id="btn-add-event">Confirmar</button>
+                        <button type="button" class="btn btn-link" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Edit event -->
+        <div class="modal fade" id="modal-edit-event" data-backdrop="static" data-keyboard="false">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Alterando agendamento</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <form class="edit-event__form">
+                            <div class="form-group">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control edit-event-title" placeholder="Nome" readonly="readonly">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="fg-line">
+                                	<input type="text" class="form-control edit-event-hour" placeholder="Hora" readonly="readonly">
+                                </div>
+                            </div>
+
+                            <input type="hidden" class="edit-event-id">
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+<!--                         <button class="btn btn-link" data-calendar="update">Atualizar</button> -->
+                        <button class="btn btn-link" data-calendar="delete">Cancelar Agendamento</button>
+                        <button class="btn btn-link" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+	    
+	</section>
+	
+	<div class="parallax-window" data-parallax="scroll" data-image-src="https://unsplash.it/1500/800?random&gravity=center"></div>
+	
+	<section id="parceiros-section" class="home-section">
+		<div class="block-header">
+             <h2>Parceiros
+                 <small>text bla bla</small>
+             </h2>
+         </div>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/>
+	</section>
+	
+	
+	
+	<blockquote class="blockquote-reverse m-b-25">
+		<p>Para o mínimo de perfeição, o máximo de repetição.</p>
+		<footer>
+			Amanda Lemos em <cite title="https://pensador.uol.com.br/perfeicao_repeticao/">Pensador</cite>
+		</footer>
+	</blockquote>
+
+</th:block>
+
+
+<th:block layout:fragment="javascript-extra">
+<script th:src="@{/vendors/parallax/parallax.min.js}"></script>
+<script th:src="@{/js/AfterMidnight.Calendar.js}"></script>
+
+
+	
+</th:block>
+
+</body>
+</html>
