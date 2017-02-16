@@ -29,7 +29,10 @@ AfterMidnight.Calendar = (function (){
 		this.btnSwitchView = $('[data-calendar-view]');
 		
 		this.MAX_EVENTS_A_DAY = 4;
-        
+		
+		this.modalLogin = $('#modalLogin');
+		this.btnModalLogin = $('#barraNavegacaoBtnLogin');
+		
 	}
 	
 	Calendar.prototype.iniciar = function(){
@@ -71,7 +74,12 @@ AfterMidnight.Calendar = (function (){
 	
 	function onEventClick(event, element){
 //		console.log(event);
-		if(1===2/*usuario não dono do evento nem administrador*/){
+		if(1===2/* TODO: usuario não está logado*/){
+			onUsuarioNaoLogado.call(this, 'Gentileza efetue login para cancelar um agendamento');
+			return;
+		}
+		
+		if(1===2/* TODO: usuario não dono do evento nem administrador*/){
 			swal(
                     'Ação não permitida!',
                     'Você não pode alterar este evento pois não possui permissão',
@@ -100,6 +108,12 @@ AfterMidnight.Calendar = (function (){
 	}
 	
 	function onDayClick(date){
+		
+		if(1===2/* TODO: usuario não está logado*/){
+			onUsuarioNaoLogado.call(this, 'Gentileza efetue login para efetuar um agendamento');
+			return;
+		}
+		
 		 var isoDate = moment(date).toISOString();
 
          var eventosByDateOnly = getEventsByDateOnly.call(this, date);
@@ -262,7 +276,27 @@ AfterMidnight.Calendar = (function (){
 	}
 	
 	
+	function onUsuarioNaoLogado(msg){
+		swal({
+            title:'Não Logado!',
+            text: msg,
+            type: 'warning',
+            showCancelButton: false,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            cancelButtonText: 'Não',
+            confirmButtonText: 'Entendi!'
+		}).then(function(){
+        	this.btnModalLogin.trigger('click');
+        }.bind(this)).bind(this);
+		return;
+
+	}
 	
+	/*************
+	 * UTIL
+	 ***********/
+		
 	function construirEvento(id, title, hour, start, end, allDay, isOwner){
 		
 		var h = hour.substring(0,2);
