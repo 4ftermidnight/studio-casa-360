@@ -1,0 +1,6 @@
+User-Agent: Googlebot
+Allow: www.casa360.studio
+User-Agent: Googlebot-Mobile
+User-Agent: *
+Allow: 
+
