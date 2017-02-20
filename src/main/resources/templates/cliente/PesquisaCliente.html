@@ -15,13 +15,13 @@
 	<div class="page-header">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-10">
-					<h1>Pesquisa de clientes</h1>
+				<div class="col-sm-8">
+					<h1>Pesquisa de asasas</h1>
 				</div>
 				
-				<div class="col-sm-2">
-					<div class="aw-page-header-controls">
-						<a class="btn  btn-default" th:href="@{/cliente/novo}">
+				<div class="col-sm-4">
+					<div class="am-page-header-controls">
+						<a class="btn  btn-default" th:href="@{/clientes/novo}">
 							<i class="glyphicon  glyphicon-plus-sign"></i> <span class="hidden-xs  hidden-sm">Novo</span>
 						</a>
 					</div>
@@ -32,15 +32,17 @@
 	
 	<div class="container-fluid">
 		<form method="GET" th:object="${clienteFilter}">
-			<div class="row">
-				<div class="form-group  col-sm-8">
-					<label class="control-label" for="nome">Nome</label>
-					<input type="text" class="form-control" id="nome" autofocus="autofocus" th:field="*{nome}"/>
+			<div class="form-group fg-float m-b-30">
+				<div class="fg-line">
+					<input type="text" id="nome" autofocus="autofocus" th:field="*{nome}" class="form-control input-sm"> 
+					<label class="fg-label">Nome</label>
 				</div>
-				
-				<div class="form-group  col-sm-4">
-					<label for="cpfOuCnpj" class="control-label">CPF/CNPJ</label>
-					<input type="text" class="form-control" id="cpfOuCnpj" th:field="*{cpfOuCnpj}"/>
+			</div>
+			
+			<div class="form-group fg-float m-b-30">
+				<div class="fg-line">
+					<input type="text" id="cpfOuCnpj" th:field="*{cpfOuCnpj}" class="form-control input-sm"> 
+					<label class="fg-label" for="cpfOuCnpj">CPF/CNPJ</label>
 				</div>
 			</div>
 			
@@ -75,11 +77,11 @@
 						<td class="text-right" th:text="${cliente.endereco.nomeCidadeSiglaEstado}">Salvador/BA</td>
 						
 						<td class="text-center">
-							<a class="btn  btn-link  btn-xs  js-tooltip" title="Editar" th:href="@{/cliente/{codigo}(codigo=${cliente.codigo})}"> 
+							<a class="btn  btn-link  btn-xs  js-tooltip" title="Editar" th:href="@{/clientes/{codigo}(codigo=${cliente.codigo})}"> 
 								<i class="glyphicon glyphicon-pencil"></i>
 							</a>
 							<a class="btn  btn-link  btn-xs  js-tooltip  js-excluir-btn" title="Excluir"
-									data:url="@{/cliente/{codigo}(codigo=${cliente.codigo})}" 
+									data:url="@{/clientes/{codigo}(codigo=${cliente.codigo})}" 
 									data:objeto="${cliente.nome}"
 									href="#">
 								<i class="glyphicon glyphicon-remove"></i>

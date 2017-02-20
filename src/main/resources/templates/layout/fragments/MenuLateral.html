@@ -10,31 +10,32 @@
 <body>
 
 	<aside id="sidebar" class="sidebar c-overflow" th:fragment="menu-sidebar">
-		<div class="s-profile">
-			<a href="" data-ma-action="profile-menu-toggle">
-				<div class="sp-pic">
-					<img src="https://avatars.io/facebook/nicolas0liveira/small" alt="">
-				</div>
+<!-- 		<div class="s-profile"> -->
+<!-- 			<a href="" data-ma-action="profile-menu-toggle"> -->
+<!-- 				<div class="sp-pic"> -->
+<!-- 					<img src="https://avatars.io/facebook/nicolas0liveira/small" alt=""> -->
+<!-- 				</div> -->
 
-				<div class="sp-info">
-					Nicolas <i class="zmdi zmdi-caret-down"></i>
-				</div>
-			</a>
+<!-- 				<div class="sp-info"> -->
+<!-- 					Nicolas <i class="zmdi zmdi-caret-down"></i> -->
+<!-- 				</div> -->
+<!-- 			</a> -->
 
-			<ul class="main-menu">
-				<li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li>
-				<li><a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a></li>
-				<li><a href=""><i class="zmdi zmdi-settings"></i> Settings</a></li>
-				<li><a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a></li>
-			</ul>
-		</div>
+<!-- 			<ul class="main-menu"> -->
+<!-- 				<li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li> -->
+<!-- 				<li><a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a></li> -->
+<!-- 				<li><a href=""><i class="zmdi zmdi-settings"></i> Settings</a></li> -->
+<!-- 				<li><a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a></li> -->
+<!-- 			</ul> -->
+<!-- 		</div> -->
 
 		<ul class="main-menu">
 			<li class="sub-menu"><a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-developer-board"></i>Administrativo</a>
 				<ul>
-					<li><a href="form-elements.html">Dashboard</a></li>
-					<li><a href="form-elements.html">Clientes</a></li>
+					<li><a th:href="form-elements.html">Dashboard</a></li>
+					<li><a th:href="@{/clientes}">Clientes</a></li>
 					<li><a href="form-elements.html">Agenda</a></li>
+					
 					<li class="sub-menu"><a href="" data-ma-action="submenu-toggle">Relatórios</a>
 						<ul>
 							<li><a href="">Tempo de uso por cliente</a></li>
@@ -43,6 +44,7 @@
 							<li><a href="">Clientes ausentes</a></li>
 						</ul>
 					</li>
+					
 					<li class="sub-menu"><a href="" data-ma-action="submenu-toggle">Marketing</a>
 						<ul>
 							<li><a href="">Mail marketing</a></li>

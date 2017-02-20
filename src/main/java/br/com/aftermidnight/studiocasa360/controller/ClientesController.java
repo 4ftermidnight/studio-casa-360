@@ -36,8 +36,8 @@ import br.com.aftermidnight.studiocasa360.service.exception.CpfOuCnpjClienteJaCa
 import br.com.aftermidnight.studiocasa360.service.exception.ImpossivelExcluirEntidadeException;
 
 @Controller
-@RequestMapping("/cliente")
-public class ClienteController {
+@RequestMapping("/clientes")
+public class ClientesController {
 
 	@Autowired
 	private Clientes clientes;
@@ -73,16 +73,17 @@ public class ClienteController {
 		
 		flashAttr.addFlashAttribute("mensagem", "Cliente salvo com sucesso");
 		
-		return new ModelAndView("redirect:/cliente/novo");
+		return new ModelAndView("redirect:/clientes/novo");
 	}
 	
 	@GetMapping
 	public ModelAndView pesquisar(ClienteFilter clienteFilter, BindingResult result, 
-			@PageableDefault(size=20) Pageable pageable, HttpServletRequest httpServletRequest) {
+			@PageableDefault(size=2) Pageable pageable, HttpServletRequest httpServletRequest) {
 		ModelAndView mv = new ModelAndView("cliente/PesquisaCliente");
 		
 		mv.addObject("tiposPessoa", TipoPessoa.values());
 		
+
 		PageWrapper<Cliente> paginaWrapper = new PageWrapper<>(clientes.filtrar(clienteFilter, pageable) ,httpServletRequest);
 		mv.addObject("pagina", paginaWrapper);
 		

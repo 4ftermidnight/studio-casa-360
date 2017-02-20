@@ -1,6 +1,9 @@
 package br.com.aftermidnight.studiocasa360.repository.helper.cliente;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,6 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import br.com.aftermidnight.studiocasa360.model.Cliente;
+import br.com.aftermidnight.studiocasa360.model.TipoPessoa;
 import br.com.aftermidnight.studiocasa360.repository.filter.ClienteFilter;
 import br.com.aftermidnight.studiocasa360.repository.paginacao.PaginacaoUtil;
 
@@ -41,9 +45,17 @@ public class ClientesImpl implements ClientesQueries {
 		//para evitar problemas do lazy load deve-se inicializar o endereco.cidade.estado
 		criteria.createAlias("endereco.cidade", "c", JoinType.LEFT_OUTER_JOIN);
 		criteria.createAlias("c.estado", "e", JoinType.LEFT_OUTER_JOIN);
-			
+
+		//para testar
+		List<Cliente> l = new ArrayList<Cliente>();
+		l.add(new Cliente(1L, "C1", TipoPessoa.FISICA));
+		l.add(new Cliente(2L, "C2", TipoPessoa.FISICA));
+		l.add(new Cliente(3L, "C3", TipoPessoa.FISICA));
+		l.add(new Cliente(4L, "C4", TipoPessoa.FISICA));
+		l.add(new Cliente(5L, "C5", TipoPessoa.FISICA));
+		return new PageImpl<>(l, pageable, 5);
 		
-		return new PageImpl<>(criteria.list(), pageable, total(filtro));
+		//return new PageImpl<>(criteria.list(), pageable, total(filtro));
 	}
 
 	private Long total(ClienteFilter filtro){

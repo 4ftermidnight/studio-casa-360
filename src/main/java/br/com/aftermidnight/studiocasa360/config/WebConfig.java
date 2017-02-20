@@ -26,6 +26,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.jasperreports.JasperReportsMultiFormatView;
 import org.springframework.web.servlet.view.jasperreports.JasperReportsViewResolver;
 
+import br.com.aftermidnight.studiocasa360.thymeleaf.CustomDialect;
+
 
 @Configuration
 //@ComponentScan(basePackageClasses = { ClienteController.class}) 
@@ -47,10 +49,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 	
-//	@Bean
-//	public BrewerDialect brewerDialect() {
-//		return new BrewerDialect();
-//	}
+	@Bean
+	public CustomDialect brewerDialect() {
+		return new CustomDialect();
+	}
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {

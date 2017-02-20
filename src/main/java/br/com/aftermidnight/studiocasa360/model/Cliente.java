@@ -64,6 +64,30 @@ public class Cliente implements Serializable {
 	@Embedded
 	private Endereco endereco;
 	
+	public Cliente() {
+		super();
+	}
+
+	public Cliente(Long codigo, String nome, TipoPessoa tipoPessoa) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.tipoPessoa = tipoPessoa;
+		this.endereco = new Endereco();
+	}
+	
+	public Cliente(Long codigo, String nome, TipoPessoa tipoPessoa, String cpfOuCnpj, String telefone, String email,
+			Endereco endereco) {
+		super();
+		this.codigo = codigo;
+		this.nome = nome;
+		this.tipoPessoa = tipoPessoa;
+		this.cpfOuCnpj = cpfOuCnpj;
+		this.telefone = telefone;
+		this.email = email;
+		this.endereco = endereco;
+	}
+
 	public boolean isNovo(){
 		return codigo == null;
 	}
