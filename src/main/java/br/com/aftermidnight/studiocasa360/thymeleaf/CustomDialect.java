@@ -18,7 +18,7 @@ import br.com.aftermidnight.studiocasa360.thymeleaf.processor.PaginacaoElementTa
 public class CustomDialect extends AbstractProcessorDialect {
 
 	public CustomDialect() {
-		super("AfterMidnight Custom", "brewer", StandardDialect.PROCESSOR_PRECEDENCE);
+		super("AfterMidnight Custom", "am", StandardDialect.PROCESSOR_PRECEDENCE);
 	}
 
 	@Override
