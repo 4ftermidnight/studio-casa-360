@@ -10,24 +10,6 @@
 <body>
 
 	<aside id="sidebar" class="sidebar c-overflow" th:fragment="menu-sidebar">
-<!-- 		<div class="s-profile"> -->
-<!-- 			<a href="" data-ma-action="profile-menu-toggle"> -->
-<!-- 				<div class="sp-pic"> -->
-<!-- 					<img src="https://avatars.io/facebook/nicolas0liveira/small" alt=""> -->
-<!-- 				</div> -->
-
-<!-- 				<div class="sp-info"> -->
-<!-- 					Nicolas <i class="zmdi zmdi-caret-down"></i> -->
-<!-- 				</div> -->
-<!-- 			</a> -->
-
-<!-- 			<ul class="main-menu"> -->
-<!-- 				<li><a href="profile-about.html"><i class="zmdi zmdi-account"></i> View Profile</a></li> -->
-<!-- 				<li><a href=""><i class="zmdi zmdi-input-antenna"></i> Privacy Settings</a></li> -->
-<!-- 				<li><a href=""><i class="zmdi zmdi-settings"></i> Settings</a></li> -->
-<!-- 				<li><a href=""><i class="zmdi zmdi-time-restore"></i> Logout</a></li> -->
-<!-- 			</ul> -->
-<!-- 		</div> -->
 
 		<ul class="main-menu">
 			<li class="sub-menu"><a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-developer-board"></i>Administrativo</a>
@@ -54,12 +36,12 @@
 					
 				</ul>
 			</li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#home-section"><i class="zmdi zmdi-home js-scroll-animate" id="home-sessionlink"></i> Home</a></li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#ideia-section"><i class="zmdi zmdi-lamp js-scroll-animate" id="ideia-sessionlink"></i> Ideia</a></li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#localizacao-section"><i class="zmdi zmdi-pin js-scroll-animate"  id="localizacaolink"></i> Localização</a></li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#precos-section"><i class="zmdi zmdi-card-giftcard js-scroll-animate" id="precos-sectionlink"></i> Preços e Promoções</a></li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#agenda-section"><i class="zmdi zmdi-calendar-alt js-scroll-animate" id="agenda-sectionlink"></i> Agenda</a></li>
-			<li><a href="#" class="js-scroll-animate" data-scroll-target="#parceiros-section"><i class="zmdi zmdi-accounts js-scroll-animate" id="parceiros-sectionlink"></i> Parceiros</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="home-section" ><i class="zmdi zmdi-home js-scroll-animate" id="home-sessionlink"></i> Home</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="ideia-section"><i class="zmdi zmdi-lamp js-scroll-animate" id="ideia-sessionlink"></i> Ideia</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="localizacao-section"><i class="zmdi zmdi-pin js-scroll-animate"  id="localizacaolink"></i> Localização</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="precos-section"><i class="zmdi zmdi-card-giftcard js-scroll-animate" id="precos-sectionlink"></i> Preços e Promoções</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="agenda-section"><i class="zmdi zmdi-calendar-alt js-scroll-animate" id="agenda-sectionlink"></i> Agenda</a></li>
+			<li><a th:href="@{/}" class="js-scroll-animate" data-scroll-idtarget="parceiros-section"><i class="zmdi zmdi-accounts js-scroll-animate" id="parceiros-sectionlink"></i> Parceiros</a></li>
 		</ul>
 	</aside>
 	
